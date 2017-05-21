@@ -1,10 +1,13 @@
 <resources>
     <string name="app_name">showapi</string>
     <string name="hello_world">Hello world!</string>
-
+    <string name="action_settings">Settings</string>
+    <string name="second_activity">第二个 activity</string>
     <string name="button">Button</string>
     <string name="title_first">First</string>
     <string name="title_sub_first">Sub</string>
     <string name="empty_string">null</string>
+    <string name="recommend">推荐</string>
+    <string name="newest">最新</string>
 
 </resources>
