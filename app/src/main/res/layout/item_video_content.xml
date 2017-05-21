@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/cw_white"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/space_s">
+
+        <com.yahs.king.video.view.CircleImageView
+            android:id="@+id/ivHeader"
+            android:layout_width="@dimen/avatar_size"
+            android:layout_height="@dimen/avatar_size"
+            android:contentDescription="@string/action_settings"
+            android:src="@mipmap/ic_place_holder"/>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/space_s"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvUserName"
+                style="@style/tv_m_blue_sl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/empty_string"/>
+
+            <TextView
+                android:id="@+id/tvTime"
+                style="@style/tv_m_grey_sl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvUserName"
+                android:text="@string/empty_string"/>
+            
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/tvContent"
+        style="@style/tv_m_black_sl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="10"
+        android:singleLine="false"
+        android:text="@string/empty_string"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+
+        <ImageView
+            android:id="@+id/ivContent"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_margin="@dimen/space_m"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_place_holder"/>
+
+        <ImageView
+            android:id="@+id/btn_player"
+            android:src="@drawable/player"
+            android:layout_gravity="center"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:id="@+id/like"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:paddingRight="5dp"
+            android:scaleType="fitEnd"
+            android:src="@drawable/image_like_selector"
+            />
+
+        <TextView
+            android:id="@+id/like_num"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="0"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="@color/txt_lnum_selector"
+            />
+
+        <View
+            android:layout_width="1dp"
+            android:background="#8a8a8a"
+            android:layout_height="match_parent"/>
+
+        <ImageView
+            android:id="@+id/hate_item"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:paddingRight="5dp"
+            android:scaleType="fitEnd"
+            android:src="@drawable/image_unlike_selector" />
+
+        <TextView
+            android:id="@+id/hate_num"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="0"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="@color/txt_lnum_selector"
+            />
+        <View
+            android:layout_width="1dp"
+            android:background="#8a8a8a"
+            android:layout_height="match_parent"/>
+
+        <ImageView
+            android:id="@+id/comment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:paddingRight="5dp"
+            android:scaleType="fitEnd"
+            android:src="@drawable/ic_toolbar_icon_comment" />
+
+        <TextView
+            android:id="@+id/comment_num"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="0"
+            android:textColor="#8a8a8a"
+            />
+        <View
+            android:layout_width="1dp"
+            android:background="#8a8a8a"
+            android:layout_height="match_parent"/>
+
+        <ImageView
+            android:id="@+id/retweet"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:paddingRight="5dp"
+            android:scaleType="fitEnd"
+            android:src="@drawable/ic_toolbar_icon_retweet" />
+
+        <TextView
+            android:id="@+id/retweet_num"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="0"
+            android:textColor="#8a8a8a" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/cw_black_deep"/>
+
+</LinearLayout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">showapi</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string name="button">Button</string>
+    <string name="title_first">First</string>
+    <string name="title_sub_first">Sub</string>
+    <string name="empty_string">null</string>
+
+</resources>
