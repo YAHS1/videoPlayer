@@ -1,2 +1,5 @@
 ![Image](https://github.com/YAHS1/videoPlayer/blob/master/screencut/%5D%7DTF91H)%5D~U%7BC0C2G2WMYFM.png?raw=true)
 ![Image](https://github.com/YAHS1/videoPlayer/blob/master/screencut/pause.gif?raw=true)
+![Image](https://github.com/YAHS1/videoPlayer/blob/master/screencut/%E5%88%97%E8%A1%A8.gif?raw=true)
+![Image](https://github.com/YAHS1/videoPlayer/blob/master/screencut/%E5%A4%A7%E5%B0%8F.gif?raw=true)
+![Image](https://github.com/YAHS1/videoPlayer/blob/master/screencut/%E6%A8%AA%E7%AB%96.gif?raw=true)
