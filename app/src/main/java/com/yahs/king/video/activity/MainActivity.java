@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.yahs.king.video.R;
@@ -22,7 +23,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    protected Handler mHandler =  new Handler();
     private ArrayList<VideoBean.ShowapiResBodyBean.PagebeanBean.ContentlistBean> contentList;
     private RecyclerView rv_video;
     private MyAdapter mAdapter;
@@ -34,14 +34,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         contentList=new ArrayList<>();
-        initData();
+
         rv_video = (RecyclerView) this.findViewById(R.id.rv_video);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rv_video.setLayoutManager(linearLayoutManager);
-
+        initData();
 
         mAdapter=new MyAdapter(this,contentList);
         rv_video.setAdapter(mAdapter);
+
         mAdapter.setOnItemClickListener(new MyAdapter.onItemClicListener() {
             @Override
             public void onItemClickListener(View v, int pos) {
@@ -56,6 +57,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initData() {
+
+        //判断有没有缓存
+        String cache = CacheUtils.getCache(GlobalConstants.URL, this);
+        if (!TextUtils.isEmpty(cache)){
+            //从缓存得到数据
+            processData(cache);
+        }else {
+            getDatafromServer();
+        }
         getDatafromServer();
     }
 
@@ -67,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 String result = response.toString();
                 //解析数据
                 processData(result);
+
                 //缓存到本地
                 CacheUtils.setCache(MainActivity.this,GlobalConstants.URL,result);
             }
@@ -96,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 contentlistBean.setName(content.getString("name"));
                 contentlistBean.setVideo_uri(content.getString("video_uri"));
                 contentList.add(contentlistBean);
+                System.out.println(contentlistBean.getName());
 
             }
 

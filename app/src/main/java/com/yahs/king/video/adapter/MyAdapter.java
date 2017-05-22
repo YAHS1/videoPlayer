@@ -6,6 +6,7 @@ import android.media.MediaMetadataRetriever;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * Created by king on 2017/5/20.
  */
@@ -34,7 +37,7 @@ public class MyAdapter extends RecyclerView.Adapter{
     private ArrayList<VideoBean.ShowapiResBodyBean.PagebeanBean.ContentlistBean> datas;
     private onItemClicListener mOnItemClicListener;
     private VideoBean.ShowapiResBodyBean.PagebeanBean.ContentlistBean contentlistBean;
-    private Handler mHandler = new Handler(){
+    /*private Handler mHandler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -42,20 +45,12 @@ public class MyAdapter extends RecyclerView.Adapter{
             homeHolder.image.setImageBitmap(bitmap);
 
         }
-    };
+    };*/
     private HomeHolder homeHolder;
 
 
-    public MyAdapter(Context context, ArrayList<VideoBean.ShowapiResBodyBean.PagebeanBean.ContentlistBean>datas){
-        this.context=context;
-        this.datas=datas;
-        this.mDiskCacheUtils=new DiskCacheUtils();
-    }
-    @Override
-    public int getItemCount() {
-        return datas.size();
 
-    }
+
 
     @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, final int viewType) {
@@ -64,7 +59,6 @@ public class MyAdapter extends RecyclerView.Adapter{
             final HomeHolder holder = new HomeHolder(view);
             //点赞
             holder.likeNum.setOnClickListener(new View.OnClickListener() {
-
                 @Override
                 public void onClick(View view) {
                     int position = holder.getAdapterPosition();
@@ -111,6 +105,12 @@ public class MyAdapter extends RecyclerView.Adapter{
         }
 
 
+    public MyAdapter(Context context, ArrayList<VideoBean.ShowapiResBodyBean.PagebeanBean.ContentlistBean> datas){
+        this.context=context;
+        this.datas=datas;
+        this.mDiskCacheUtils=new DiskCacheUtils();
+    }
+
         @Override
         public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
             if (holder instanceof HomeHolder){
@@ -128,8 +128,9 @@ public class MyAdapter extends RecyclerView.Adapter{
                 MyBitmapUtils myBitmapUtils = new MyBitmapUtils(context);
                 try {
                     myBitmapUtils.disPlay(homeHolder.ivHeader, contentlistBean.getProfile_image());
+                    myBitmapUtils.disPlay(homeHolder.image,contentlistBean.getProfile_image());
 
-                    new Thread(new Runnable() {
+                    /*new Thread(new Runnable() {
                         @Override
                         public void run() {
                             MediaMetadataRetriever retriever = new MediaMetadataRetriever();
@@ -155,7 +156,7 @@ public class MyAdapter extends RecyclerView.Adapter{
                             }
                             retriever.release();
                         }
-                    }).start();
+                    }).start();*/
 
 
 
@@ -166,6 +167,12 @@ public class MyAdapter extends RecyclerView.Adapter{
 
         }
 
+    @Override
+    public int getItemCount() {
+        return datas.size();
+
+
+    }
 
 
     public void setOnItemClickListener(onItemClicListener listener){
